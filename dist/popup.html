@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>WorkBestie</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@400;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <script type="module" crossorigin src="./popup.js"></script>
+  <link rel="modulepreload" crossorigin href="./chunks/modulepreload-polyfill-B5Qt9EMX.js">
+  <link rel="modulepreload" crossorigin href="./chunks/url-utils-3zDr1fOS.js">
+  <link rel="stylesheet" crossorigin href="./assets/popup-Cr5JOSr9.css">
+</head>
+<body>
+  <div class="noise-layer" aria-hidden="true"></div>
+  <div id="app">
+    <!-- ===== Header ===== -->
+    <header class="header">
+      <div class="logo-group">
+        <div class="logo-blob">
+          <img src="icons/icon-safe-48.png" alt="WorkBestie" width="32" height="32" style="border-radius:8px;" />
+        </div>
+        <div class="logo-type">
+          <span class="logo-name">WorkBestie</span>
+        </div>
+      </div>
+      <div class="header-actions">
+        <button id="btn-theme-toggle" class="btn-circle" aria-label="Toggle theme" title="Toggle theme" style="display:none;">
+          <span class="theme-glyph">◐</span>
+        </button>
+        <button id="btn-focus" class="btn-circle" aria-label="Focus" title="Focus" style="display:none;">
+          <i class="ph-duotone ph-timer"></i>
+        </button>
+        <button id="btn-settings" class="btn-circle" aria-label="Settings" title="Settings">
+          <i class="ph-duotone ph-gear"></i>
+        </button>
+      </div>
+    </header>
+
+    <!-- ===== Onboarding View ===== -->
+    <div id="view-onboarding" class="view">
+      <div class="onboarding-card">
+        <div class="ob-pill">setup</div>
+        <div class="ob-title">hey bestie<span class="ob-wave">👋</span></div>
+        <p class="ob-desc">quick setup — 30 seconds, promise</p>
+        <div id="onboarding-steps">
+
+          <!-- Step 0: API Key -->
+          <div class="onboarding-step active" data-step="0">
+            <div class="step-badge">voice setup</div>
+            <div class="step-heading">connect your voice</div>
+            <p class="step-desc">add your ElevenLabs API key to enable voice feedback</p>
+            <div class="input-row">
+              <input id="onboarding-api-key" type="password" class="input" placeholder="sk-..." autocomplete="off" />
+              <button id="btn-validate-key" class="btn btn-primary">validate</button>
+            </div>
+            <p id="api-key-status" class="field-status"></p>
+            <div class="onboarding-nav">
+              <span></span>
+              <button class="btn btn-primary btn-onboarding-next" disabled>next →</button>
+            </div>
+          </div>
+
+          <!-- Step 1: Voice Selection -->
+          <div class="onboarding-step" data-step="1">
+            <div class="step-badge">voice</div>
+            <div class="step-heading">choose your voice</div>
+            <p class="step-desc">who's keeping you on track?</p>
+            <div class="voice-picker">
+              <div class="voice-card" data-voice="female">
+                <div class="voice-avatar voice-avatar--coral">
+                  <i class="ph-duotone ph-user voice-emoji"></i>
+                </div>
+                <span class="voice-label">female</span>
+                <button class="btn btn-sm btn-outline btn-preview-voice" data-voice="female">preview</button>
+              </div>
+              <div class="voice-card" data-voice="male">
+                <div class="voice-avatar voice-avatar--lav">
+                  <i class="ph-duotone ph-user voice-emoji"></i>
+                </div>
+                <span class="voice-label">male</span>
+                <button class="btn btn-sm btn-outline btn-preview-voice" data-voice="male">preview</button>
+              </div>
+            </div>
+            <div class="onboarding-nav">
+              <button class="btn btn-ghost btn-onboarding-back">← back</button>
+              <button class="btn btn-primary btn-onboarding-next">next →</button>
+            </div>
+          </div>
+
+          <!-- Step 2: Roast Intensity -->
+          <div class="onboarding-step" data-step="2">
+            <div class="step-badge">intensity</div>
+            <div class="step-heading">set your vibe</div>
+            <p class="step-desc">how direct should I be?</p>
+            <div class="intensity-list">
+              <div class="intensity-card" data-intensity="soft">
+                <i class="ph-duotone ph-heart intensity-emoji"></i>
+                <div class="intensity-info">
+                  <span class="intensity-label">soft</span>
+                  <span class="intensity-desc">gentle reminders</span>
+                </div>
+              </div>
+              <div class="intensity-card" data-intensity="medium">
+                <i class="ph-duotone ph-pepper intensity-emoji"></i>
+                <div class="intensity-info">
+                  <span class="intensity-label">medium</span>
+                  <span class="intensity-desc">friendly pushback</span>
+                </div>
+              </div>
+              <div class="intensity-card" data-intensity="savage">
+                <i class="ph-duotone ph-skull intensity-emoji"></i>
+                <div class="intensity-info">
+                  <span class="intensity-label">savage</span>
+                  <span class="intensity-desc">no holding back</span>
+                </div>
+              </div>
+            </div>
+            <div class="onboarding-nav">
+              <button class="btn btn-ghost btn-onboarding-back">← back</button>
+              <button class="btn btn-primary btn-onboarding-next">next →</button>
+            </div>
+          </div>
+
+          <!-- Step 3: Session Type -->
+          <div class="onboarding-step" data-step="3">
+            <div class="step-badge">session</div>
+            <div class="step-heading">default session type</div>
+            <p class="step-desc">you can change this anytime</p>
+            <div class="session-picker">
+              <div class="session-card" data-session="open-focus">
+                <i class="ph-duotone ph-target session-emoji"></i>
+                <span class="session-label">open focus</span>
+              </div>
+              <div class="session-card" data-session="1-hour">
+                <i class="ph-duotone ph-timer session-emoji"></i>
+                <span class="session-label">1 hour</span>
+              </div>
+              <div class="session-card" data-session="2-hour">
+                <i class="ph-duotone ph-timer session-emoji"></i>
+                <span class="session-label">2 hours</span>
+              </div>
+              <div class="session-card" data-session="pomodoro">
+                <i class="ph-duotone ph-clock-countdown session-emoji"></i>
+                <span class="session-label">pomodoro</span>
+              </div>
+            </div>
+            <div class="onboarding-nav">
+              <button class="btn btn-ghost btn-onboarding-back">← back</button>
+              <button id="btn-finish-onboarding" class="btn btn-primary btn-glow">start working</button>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <!-- ===== Main Session View ===== -->
+    <div id="view-main" class="view view-main">
+      <div class="mode-strip">
+        <button class="chip session-mode-btn" data-mode="open-focus"><i class="ph-duotone ph-target"></i> open</button>
+        <button class="chip session-mode-btn" data-mode="1-hour"><i class="ph-duotone ph-timer"></i> 1hr</button>
+        <button class="chip session-mode-btn" data-mode="2-hour"><i class="ph-duotone ph-timer"></i> 2hr</button>
+        <button class="chip session-mode-btn" data-mode="pomodoro"><i class="ph-duotone ph-clock-countdown"></i> pomodoro</button>
+      </div>
+
+      <div class="timer-stage">
+        <div class="timer-ring">
+          <svg viewBox="0 0 160 160">
+            <defs>
+              <linearGradient id="timerGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stop-color="#BEFF6C" />
+                <stop offset="50%" stop-color="#B8B0FF" />
+                <stop offset="100%" stop-color="#FF6B6B" />
+              </linearGradient>
+            </defs>
+            <circle class="ring-bg" cx="80" cy="80" r="70" />
+            <circle id="timer-progress" class="ring-progress" cx="80" cy="80" r="70"
+              stroke-dasharray="439.82"
+              stroke-dashoffset="0" />
+          </svg>
+          <div class="timer-text">
+            <div id="timer-display" class="time">00:00</div>
+            <div id="timer-label" class="label">ready?</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="cta-area">
+        <button id="btn-session" class="btn btn-primary btn-wide btn-glow">
+          start session
+        </button>
+      </div>
+
+      <div class="stat-duo">
+        <div class="stat-tile stat-tile--lime">
+          <i class="ph-duotone ph-timer stat-icon"></i>
+          <div class="stat-body">
+            <span id="quick-focus-time" class="stat-value">0m</span>
+            <span class="stat-label">focused</span>
+          </div>
+        </div>
+        <div class="stat-tile stat-tile--coral">
+          <i class="ph-duotone ph-shield stat-icon"></i>
+          <div class="stat-body">
+            <span id="quick-distractions" class="stat-value">0</span>
+            <span class="stat-label">distractions</span>
+          </div>
+        </div>
+      </div>
+
+      <div id="pomodoro-break-banner" class="break-card" style="display: none;">
+        <span class="break-icon"><i class="ph-duotone ph-coffee"></i></span>
+        <div class="break-body">
+          <span class="break-heading">break time</span>
+          <span class="break-sub">take 5 minutes</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- ===== Stats View ===== -->
+    <div id="view-stats" class="view view-stats">
+      <div class="section-head">
+        <div class="section-title">your stats</div>
+        <div class="section-sub">see how you're doing</div>
+      </div>
+
+      <div class="stat-grid">
+        <div class="stat-tile stat-tile--lime">
+          <i class="ph-duotone ph-timer stat-icon"></i>
+          <div class="stat-body">
+            <span id="stats-focus-time" class="stat-value">0m</span>
+            <span class="stat-label">total focus</span>
+          </div>
+        </div>
+        <div class="stat-tile stat-tile--coral">
+          <i class="ph-duotone ph-shield stat-icon"></i>
+          <div class="stat-body">
+            <span id="stats-distractions" class="stat-value">0</span>
+            <span class="stat-label">blocked</span>
+          </div>
+        </div>
+        <div class="stat-tile stat-tile--peach">
+          <i class="ph-duotone ph-fire stat-icon"></i>
+          <div class="stat-body">
+            <span id="stats-streak" class="stat-value">0</span>
+            <span class="stat-label">day streak</span>
+          </div>
+        </div>
+        <div class="stat-tile stat-tile--lav">
+          <i class="ph-duotone ph-check-circle stat-icon"></i>
+          <div class="stat-body">
+            <span id="stats-sessions" class="stat-value">0</span>
+            <span class="stat-label">sessions</span>
+          </div>
+        </div>
+      </div>
+
+      <div id="stats-current-session" class="live-session-card" style="display: none;">
+        <div class="live-badge"><span class="live-dot"></span> active now</div>
+        <div class="stat-duo">
+          <div class="stat-tile stat-tile--lime stat-tile--compact">
+            <i class="ph-duotone ph-timer stat-icon"></i>
+            <div class="stat-body">
+              <span id="stats-current-elapsed" class="stat-value">0m</span>
+              <span class="stat-label">elapsed</span>
+            </div>
+          </div>
+          <div class="stat-tile stat-tile--coral stat-tile--compact">
+            <i class="ph-duotone ph-shield stat-icon"></i>
+            <div class="stat-body">
+              <span id="stats-current-distractions" class="stat-value">0</span>
+              <span class="stat-label">distractions</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ===== Settings View ===== -->
+    <div id="view-settings" class="view view-settings">
+      <div class="section-head">
+        <div class="section-title">settings</div>
+      </div>
+
+      <div class="settings-block">
+        <div class="settings-block-title">voice & intensity</div>
+
+        <div class="settings-row">
+          <span class="settings-label">voice</span>
+          <div class="toggle-pills">
+            <button class="voice-toggle-btn" data-settings-voice="female">she</button>
+            <button class="voice-toggle-btn" data-settings-voice="male">he</button>
+          </div>
+        </div>
+
+        <div class="settings-row settings-row--col">
+          <div class="settings-row-top">
+            <span class="settings-label">intensity</span>
+            <span id="settings-intensity-label" class="badge badge--lime" style="display:none;">Medium</span>
+          </div>
+          <input id="settings-intensity-slider" type="range" class="slider" min="0" max="2" step="1" value="1" aria-label="Roast intensity" />
+          <div class="slider-labels">
+            <span>soft</span>
+            <span>medium</span>
+            <span>savage</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="settings-block">
+        <div class="settings-block-title">API key</div>
+
+        <div id="settings-api-key-saved" style="display: none;">
+          <div class="key-saved-row">
+            <span id="settings-api-key-masked" class="key-masked-text"></span>
+          </div>
+          <div style="display:flex;gap:8px;justify-content:center;margin-top:10px;">
+            <button id="btn-settings-update-key" class="btn btn-sm btn-outline">update</button>
+            <button id="btn-settings-remove-key" class="btn btn-sm btn-danger">remove</button>
+          </div>
+        </div>
+
+        <div id="settings-api-key-input-area">
+          <div class="input-row">
+            <input id="settings-api-key-input" type="password" class="input" placeholder="sk-..." autocomplete="off" />
+            <button id="btn-settings-validate-key" class="btn btn-primary">check</button>
+          </div>
+          <p id="settings-api-key-status" class="field-status"></p>
+        </div>
+      </div>
+
+      <div class="settings-block">
+        <div class="settings-block-title">blocked sites</div>
+
+        <div class="input-row">
+          <input id="settings-add-site-input" type="text" class="input" placeholder="example.com" autocomplete="off" />
+          <button id="btn-settings-add-site" class="btn btn-primary">add</button>
+        </div>
+        <p id="settings-add-site-error" class="input-error-text" style="display: none;"></p>
+
+        <div id="settings-site-categories" class="site-cats"></div>
+      </div>
+    </div>
+
+    <!-- ===== Session Summary Overlay ===== -->
+    <div id="session-summary-overlay" class="overlay session-summary-overlay" style="display: none;">
+      <div class="summary-card session-summary-card">
+        <div class="summary-top">
+          <span id="summary-emoji" class="summary-big-emoji">✨</span>
+          <div id="summary-title" class="summary-title">nice work!</div>
+          <p id="summary-subtitle" class="summary-sub">you stayed focused</p>
+        </div>
+        <div class="stat-duo">
+          <div class="stat-tile stat-tile--lime stat-tile--compact">
+            <i class="ph-duotone ph-timer stat-icon"></i>
+            <div class="stat-body">
+              <span id="summary-focus-time" class="stat-value">0m</span>
+              <span class="stat-label">focused</span>
+            </div>
+          </div>
+          <div class="stat-tile stat-tile--coral stat-tile--compact">
+            <i class="ph-duotone ph-shield stat-icon"></i>
+            <div class="stat-body">
+              <span id="summary-distractions" class="stat-value">0</span>
+              <span class="stat-label">blocked</span>
+            </div>
+          </div>
+        </div>
+        <div id="summary-pomodoro-row" class="pomo-extra" style="display: none;">
+          <div class="stat-tile stat-tile--peach stat-tile--compact">
+            <i class="ph-duotone ph-clock-countdown stat-icon"></i>
+            <div class="stat-body">
+              <span id="summary-pomodoros" class="stat-value">0</span>
+              <span class="stat-label">intervals</span>
+            </div>
+          </div>
+        </div>
+        <button id="btn-dismiss-summary" class="btn btn-primary btn-wide btn-glow">done</button>
+      </div>
+    </div>
+
+    <!-- ===== Bottom Navigation Bar ===== -->
+    <nav class="nav-bar" style="display:none;">
+      <button class="nav-item active" data-view="main">
+        <span class="nav-icon"><i class="ph-duotone ph-target"></i></span>
+        <span class="nav-label">focus</span>
+      </button>
+      <button class="nav-item" data-view="stats" style="display:none;">
+        <span class="nav-icon"><i class="ph-duotone ph-chart-bar"></i></span>
+        <span class="nav-label">stats</span>
+      </button>
+      <button class="nav-item" data-view="settings">
+        <span class="nav-icon"><i class="ph-duotone ph-gear"></i></span>
+        <span class="nav-label">settings</span>
+      </button>
+    </nav>
+  </div>
+
+</body>
+</html>
