@@ -15,7 +15,7 @@ Stop scrolling, start working. AI voice bestie that roasts you when you're distr
 - 🎤 **AI Voice Roasts** — Get called out when you visit distraction sites
 - 🔊 **Customizable Intensity** — Soft, Medium, or Savage roasting
 - ⏰ **Focus Sessions** — Open Focus, 1 Hour, 2 Hours, or Pomodoro
-- 📊 **Track Progress** — Monitor focus time, distractions, and streaks
+- 📊 **Track Progress** — Monitor focus time, distractions
 - 🎯 **Custom Block Lists** — Add any site you want to avoid
 - 💬 **GenZ Authentic** — Real talk, no corporate BS
 
@@ -137,11 +137,6 @@ MIT License - see [LICENSE](LICENSE) for details
 - Icons by [Phosphor Icons](https://phosphoricons.com)
 - Inspired by GenZ productivity culture
 
-## 📧 Contact
-
-Questions? Feedback? Hit me up:
-- Twitter: [@yourusername](https://twitter.com/yourusername)
-- Email: your.email@example.com
 
 ---
 
