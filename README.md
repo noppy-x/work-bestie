@@ -11,16 +11,16 @@ Stop scrolling, start working. AI voice bestie that roasts you when you're distr
 ## 📸 Screenshots
 
 ### Main View
-<img src="main-view-default.png" width="400" alt="WorkBestie default state">
-<img src="main-view-active.png" width="400" alt="WorkBestie active session">
+<img src="screenshots/main-view-default.png" width="400" alt="WorkBestie default state">
+<img src="screenshots/main-view-active.png" width="400" alt="WorkBestie active session">
 
 ### Onboarding Flow
-<img src="onboarding-1.png" width="400" alt="Voice selection">
-<img src="onboarding-2.png" width="400" alt="Intensity settings">
-<img src="onboarding-3.png" width="400" alt="Session type selection">
+<img src="screenshots/onboarding-1.png" width="400" alt="Voice selection">
+<img src="screenshots/onboarding-2.png" width="400" alt="Intensity settings">
+<img src="screenshots/onboarding-3.png" width="400" alt="Session type selection">
 
 ### Settings
-<img src="settings.png" width="400" alt="Settings panel with blocked sites">
+<img src="screenshots/settings.png" width="400" alt="Settings panel with blocked sites">
 
 ---
 
