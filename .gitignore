@@ -52,5 +52,5 @@ coverage/
 *.pem
 *.crx
 
-# Kiro folder (optional - keep or remove)
-.kiro/
+# Kiro folder — DO NOT IGNORE (required for hackathon submission)
+# .kiro/
