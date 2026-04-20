@@ -8,7 +8,21 @@ Stop scrolling, start working. AI voice bestie that roasts you when you're distr
 
 **🎥 [Watch Demo Video](YOUR_VIDEO_LINK_HERE)**
 
-![WorkBestie Demo](./screenshot.png)
+## 📸 Screenshots
+
+### Main View
+<img src="main-view-default.png" width="400" alt="WorkBestie default state">
+<img src="main-view-active.png" width="400" alt="WorkBestie active session">
+
+### Onboarding Flow
+<img src="onboarding-1.png" width="400" alt="Voice selection">
+<img src="onboarding-2.png" width="400" alt="Intensity settings">
+<img src="onboarding-3.png" width="400" alt="Session type selection">
+
+### Settings
+<img src="settings.png" width="400" alt="Settings panel with blocked sites">
+
+---
 
 ## ✨ Features
 
